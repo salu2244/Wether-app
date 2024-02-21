@@ -1,0 +1,25 @@
+<p>weather works!</p>
+<mat-form-field>
+    <input matInput placeholder="Entercity"  #cityCtrl (keydown.enter)="search(cityCtrl.value)">
+    <mat-Icon matSuffix (click)="search(cityCtrl.value)">search</mat-Icon>"
+</mat-form-field>
+
+
+
+<mat-card *ngIf="weather">
+<mat-card-header>
+    <mat-card-title>{{weather.name}},{{weather.sys.country}}</mat-card-title>
+    <mat-card-subtitle>{{weather.weather[0].main}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://static.vecteezy.com/system/resources/thumbnails/004/255/821/small_2x/flat-and-colorful-style-weather-forecast-icon-design-design-for-applications-and-presentations-free-vector.jpg" [alt]="weather.weather[0].main">
+    
+    <mat-card-content>
+        <h1>{{weather.main.temp | number:'1.0-0'}}C</h1>
+        <p>Pressure: {{weather.main.pressure}} hpa</p>
+        <p>Humidity: {{weather.main.humidity}} %</p>
+        <p> Wind: {{weather.wind.speed}} m/s</p>
+    </mat-card-content>
+</mat-card>
+
+
+
